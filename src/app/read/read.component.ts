@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from "../data.service";
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-read',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ReadComponent implements OnInit {
   data: any;
-  constructor(private dataService : DataService, private router: Router, public route : ActivatedRoute) {}
+  constructor(private dataService : DataService, private router: Router, public route : ActivatedRoute, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     this.dataService.getItems().then((response: any) => {
@@ -19,8 +20,10 @@ export class ReadComponent implements OnInit {
 
   deleteItem(id : any){
     this.dataService.deleteItem(id).then((response: any) => {
-      this.data = response.data;
-      this.router.navigateByUrl('item');
+      if (response) {
+        this.toastr.success(response.message, 'Success');
+        window.location.reload();
+      }
     })
   }
 }

@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+.toast {
+    position: relative;
+    display: inline-block;
+    min-width: 300px; /* Adjust the width as needed */
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    font-size: 16px; /* Font size */
+    line-height: 1.5;
+    padding: 16px;
+    z-index: 9999; /* Adjust the z-index as needed */
+  }
+
+  .toast-success {
+    background-color: #4CAF50; /* Success color */
+  }
+
+  .toast-error {
+    background-color: #F44336; /* Error color */
+  }
+
+  /* Customize the close button (optional) */
+  .toast-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #fff; /* Close button color */
+  }
+
+  .toast-close-button:hover {
+    color: #ccc; /* Close button hover color */
+  }
